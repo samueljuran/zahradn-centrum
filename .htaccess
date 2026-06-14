@@ -1,0 +1,24 @@
+Options -Indexes
+
+# Presmerovanie všetkých požiadaviek cez index.php
+RewriteEngine On
+
+# Ak súbor alebo priečinok existuje fyzicky, nechaj ho prejsť (CSS, JS, obrázky)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Všetko ostatné → index.php
+RewriteRule ^(.*)$ index.php?page=$1 [QSA,L]
+
+# Bezpečnostné hlavičky
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# Zakáž prístup k PHP konfiguračným súborom
+<FilesMatch "\.(sql|log|md)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
