@@ -3,24 +3,6 @@
 Školský projekt pre predmet **Skriptovacie jazyky**.  
 Webstránka záhradníckej firmy realizovaná v čistom PHP 8.x bez frameworku.
 
----
-
-## ✅ Splnené požiadavky
-
-| Požiadavka | Splnené |
-|---|---|
-| OOP (triedy, dedičnosť, enkapsulácria) | ✅ |
-| CRUD nad entitami (Služby + Galéria) | ✅ |
-| PHP 8.0+ | ✅ |
-| MySQL 8.0+ / MariaDB 10.5+ | ✅ |
-| Bez PHP frameworku | ✅ |
-| Bez CMS | ✅ |
-| Autorizácia admina (bcrypt + sessions) | ✅ |
-| PSR-4 autoloading | ✅ |
-| Optimalizovaná DB schéma (FK, indexy, typy) | ✅ |
-| Dynamické časti webu (DB-driven) | ✅ |
-
----
 
 ## 📁 Štruktúra projektu
 
@@ -54,75 +36,15 @@ zeleny_raj/
         ├── partials/           ← header, footer
         ├── public/             ← home, services, gallery, contact
         └── admin/              ← login, dashboard, CRUD formuláre
-```
 
----
 
-## 🚀 Inštalácia
-
-### 1. Požiadavky
-- PHP 8.0+
-- MySQL 8.0+ alebo MariaDB 10.5+
-- Webserver (Apache / Nginx) alebo `php -S`
-
-### 2. Databáza
-```sql
--- Spusti v MySQL / phpMyAdmin:
-SOURCE database/schema.sql;
-```
-
-### 3. Konfigurácia
-Uprav `config/database.php`:
-```php
-return [
-    'host'     => 'localhost',
-    'dbname'   => 'zeleny_raj',
-    'username' => 'root',      // tvoj MySQL používateľ
-    'password' => '',          // tvoje heslo
-];
-```
-
-### 4. Spustenie (lokálne bez Apache)
-```bash
-cd zeleny_raj
-php -S localhost:8000
-```
-Otvor: http://localhost:8000
-
-### 5. Prístup do administrácie
+ 5. Prístup do administrácie
 - URL: `http://localhost:8000/index.php?page=admin-login`
 - Meno: `admin`
 - Heslo: `admin123`
 
 ---
 
-## 🏗️ Použité vzory a technológie
 
-- **MVC** – Model-View-Controller
-- **Singleton** – trieda `Database` (jedno DB spojenie)
-- **Front Controller** – všetky požiadavky cez `index.php`
-- **PSR-4** – autoloading tried bez Composera
-- **PDO** – prepared statements (ochrana pred SQL Injection)
-- **bcrypt** – `password_hash()` / `password_verify()` (ochrana hesiel)
-- **Sessions** – PHP sessions pre admin autentifikáciu
-- **`htmlspecialchars()`** – ochrana pred XSS vo všetkých výstupoch
 
----
 
-## 📊 CRUD Operácie
-
-### Služby (`services`)
-| Operácia | Kde |
-|---|---|
-| **Create** | Admin → Pridať službu |
-| **Read** | Verejná stránka Služby + Admin zoznam |
-| **Update** | Admin → Upraviť službu |
-| **Delete** | Admin → Vymazať službu |
-
-### Galéria (`gallery_images`)
-| Operácia | Kde |
-|---|---|
-| **Create** | Admin → Pridať fotografiu (upload) |
-| **Read** | Verejná Galéria + Admin zoznam |
-| **Update** | Admin → Upraviť metadáta |
-| **Delete** | Admin → Vymazať fotografiu |
