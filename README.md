@@ -1,10 +1,10 @@
-# 🌿 Zelený Raj Záhrady – PHP Projekt
+🌿 Zelený Raj Záhrady – PHP Projekt
 
 Školský projekt pre predmet **Skriptovacie jazyky**.  
 Webstránka záhradníckej firmy realizovaná v čistom PHP 8.x bez frameworku.
 
 
-## 📁 Štruktúra projektu
+ Štruktúra projektu
 
 ```
 zeleny_raj/
